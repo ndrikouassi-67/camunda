@@ -10,7 +10,7 @@ global:
   ingress:
     enabled: true
     className: nginx
-    host: "camunda.dosvak.org"
+    host: "alphonse-VirtualBox"
     tls:
       # Ingress.tls.enabled if true, then tls is configured on the ingress resource. If enabled the Ingress.host need to be defined.
       enabled: false
@@ -18,19 +18,19 @@ global:
       secretName: "mycert"
   identity:
     auth:
-      publicIssuerUrl: "https://camunda.dosvak.org/auth/realms/camunda-platform"
+      publicIssuerUrl: "https://alphonse-VirtualBox/auth/realms/camunda-platform"
       operate:
-        redirectUrl: "http://camunda.dosvak.org/operate"
+        redirectUrl: "http://alphonse-VirtualBox/operate"
       tasklist:
-        redirectUrl: "http://camunda.dosvak.org/tasklist"
+        redirectUrl: "http://alphonse-VirtualBox/tasklist"
       optimize:
-        redirectUrl: "http://camunda.dosvak.org/optimize"
+        redirectUrl: "http://alphonse-VirtualBox/optimize"
       webModeler:
-        redirectUrl: "http://camunda.dosvak.org/modeler"
+        redirectUrl: "http://alphonse-VirtualBox/modeler"
 
 identity:
   contextPath: "/identity"
-  fullURL: "https://camunda.dosvak.org/identity"
+  fullURL: "https://alphonse-VirtualBox/identity"
   # Keycloak configuration, for the keycloak dependency chart which is used by identity
   keycloak: # see: http://github.com/bitnami/charts/tree/master/bitnami/keycloak#parameters
     ingress: # see: http://www.keycloak.org/server/reverseproxy
@@ -41,7 +41,7 @@ identity:
       - name: KEYCLOAK_PROXY_ADDRESS_FORWARDING
         value: "true"
       - name: KEYCLOAK_EXTRA_ARGS
-        value: "-Dkeycloak.frontendUrl=https://camunda.dosvak.org/auth"
+        value: "-Dkeycloak.frontendUrl=https://alphonse-VirtualBox/auth"
 operate:
   contextPath: "/operate"
   ingress:
@@ -51,7 +51,7 @@ operate:
       ingress.kubernetes.io/rewrite-target:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     path: /
-    host: "camunda.dosvak.org"
+    host: "alphonse-VirtualBox"
     tls:
       enabled: false
       secretName: ""
@@ -65,7 +65,7 @@ optimize:
       ingress.kubernetes.io/rewrite-target:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     path: /
-    host: "camunda.dosvak.org"
+    host: "alphonse-VirtualBox"
     tls:
       enabled: false
       secretName: ""
@@ -79,7 +79,7 @@ tasklist:
       ingress.kubernetes.io/rewrite-target:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     path: /
-    host: "camunda.dosvak.org"
+    host: "alphonse-VirtualBox"
     tls:
       enabled: false
       secretName: ""
@@ -93,4 +93,4 @@ zeebe-gateway:
   ingress:
     enabled: true
     className: nginx
-    host: "zeebe.camunda.dosvak.org"
+    host: "zeebe.alphonse-VirtualBox"
